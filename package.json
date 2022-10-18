@@ -8,6 +8,9 @@
     "start": "node build/server.js",
     "dev": "nodemon --watch src --exec ts-node server.ts"
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

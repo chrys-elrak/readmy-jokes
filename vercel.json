@@ -1,9 +1,16 @@
 {
-    "redirects": [
-      {
-        "source": "/",
-        "destination": "https://github.com/chrys-elrak/readmy-jokes"
-      }
+    "version": 2,
+    "builds": [
+        {
+            "src": "./build/server.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/build"
+        }
     ]
   }
   
