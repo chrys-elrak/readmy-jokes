@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
-import { renderJoke, renderMemes, renderQa } from '../renderer';
-import { Joke, JokeType } from '../types/joke';
-import getJoke from '../utils/getJoke';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { renderJoke, renderMemes, renderQa } from '../src/renderer';
+import { Joke, JokeType } from '../src/types/joke';
+import getJoke from '../src/utils/getJoke';
 
-export default function (req: Request, res: Response) {
+export default function (req: VercelRequest, res: VercelResponse) {
     try {
         let svg: string = '';
         const { jokeType } = req.query;
@@ -18,7 +18,7 @@ export default function (req: Request, res: Response) {
             svg = renderMemes(joke as Joke<"MM">);
         }
         res.setHeader('Content-Type', 'image/svg+xml');
-        res.setHeader('Cache-Control', `public, max-age=10`);
+        res.setHeader('Cache-Control', 's-maxage=86400');
         return res.send(svg);
     } catch {
         res.status(500).send('An error was encountered while processing your request');
