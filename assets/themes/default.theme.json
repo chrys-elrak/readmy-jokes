@@ -1,0 +1,11 @@
+{
+    "backgroundColor": "white",
+    "fontFamily": "monospace",
+    "authorColor": "#1720c6",
+    "codeColor": "red",
+    "codeBackgroundColor": "#d3ead9",
+    "codeFontFamily": "monospace",
+    "questionColor": "#6d1256",
+    "answerColor": "#6d1256",
+    "jokeColor": "#3f4741"
+}
