@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "tsc && cp -r assets build",
-    "start": "node build/server.js",
+    "build": "tsc && cp -r assets public",
+    "start": "node public/api/joke.api.js",
     "dev": "nodemon --watch src --exec ts-node api/joke.api.ts"
+
   },
   "engines": {
     "node": ">=16.0.0"
