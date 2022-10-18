@@ -8,9 +8,6 @@
     "dev": "nodemon --watch src --exec ts-node api/joke.api.ts"
 
   },
-  "engines": {
-    "node": ">=16.0.0"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
