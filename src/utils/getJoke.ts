@@ -3,9 +3,9 @@ export default function getJoke(jokeType: JokeType): Joke<JokeType> {
     if (jokeType === "QA") {
         return {
             type: "QA",
-            question: "How can you tell if a lawyer is well hung?",
-            answer: "You can’t get a finger between the rope and his <code>neck!</code>",
-            author: "Chrys Rakotonimanana"
+            question: "Fa maninona mitanondrika?",
+            answer: "Zarao ilay tsikinao 🤣",
+            author: "FSC Mozika"
         };
     }
     if (jokeType === "JK") {
