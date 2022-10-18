@@ -4,8 +4,8 @@ import { Joke, JokeType } from '../types/joke';
 import getJoke from '../utils/getJoke';
 
 export default function (req: Request, res: Response) {
-    let svg = "Invalid joke type";
     try {
+        let svg: string = '';
         const { jokeType } = req.query;
         const joke = getJoke(jokeType as JokeType);
         if (joke.type === "QA") {
@@ -21,6 +21,6 @@ export default function (req: Request, res: Response) {
         res.setHeader('Cache-Control', `public, max-age=10`);
         return res.send(svg);
     } catch {
-        res.status(500).send(svg);
+        res.status(500).send('An error was encountered while processing your request');
     }
 }
