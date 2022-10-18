@@ -1,9 +1,9 @@
 {
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "https://github.com/chrys-elrak/readmy-jokes"
+      }
     ]
-}
+  }
   
