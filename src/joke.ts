@@ -6,7 +6,7 @@ import getJoke from '../src/utils/getJoke';
 export default function (req: Request, res: Response) {
     try {
         let svg: string = '';
-        const { jokeType } = req.query;
+        const jokeType = (req.query as any)?.jokeType?.toUpperCase();
         const joke = getJoke(jokeType as JokeType);
         if (joke.type === "QA") {
             svg = renderQa(joke as Joke<"QA">);

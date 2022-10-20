@@ -2,10 +2,10 @@
   "name": "readmy-jokes",
   "version": "1.0.0",
   "description": "",
+  "main": "server.ts",
   "scripts": {
     "build": "tsc && cp -r assets public",
-    "start": "node public/api/joke.api.js",
-    "dev": "nodemon --watch src --exec ts-node api/joke.api.ts"
+    "dev": "nodemon --watch src --exec ts-node server.ts"
 
   },
   "keywords": [],
