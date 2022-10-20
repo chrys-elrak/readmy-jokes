@@ -1,9 +1,9 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { Request, Response } from 'express';
 import { renderJoke, renderMemes, renderQa } from '../src/renderer';
 import { Joke, JokeType } from '../src/types/joke';
 import getJoke from '../src/utils/getJoke';
 
-export default function (req: VercelRequest, res: VercelResponse) {
+export default function (req: Request, res: Response) {
     try {
         let svg: string = '';
         const { jokeType } = req.query;
