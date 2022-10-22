@@ -1,0 +1,16 @@
+[
+    {
+        "type": "QA",
+        "question": "Qu'est-ce qui est jaune et qui attend?",
+        "answer": "Jonathan"
+    },
+    {
+        "type": "QA",
+        "joke": "Que dit une mère à son fils geek quand le dîner est servi ?",
+        "answer": "Alt Tab !"
+    },
+    {
+        "type": "MM",
+        "url": "https://web.facebook.com/photo/?fbid=10226415492394656&set=gm.971427280134006"
+    }
+]
