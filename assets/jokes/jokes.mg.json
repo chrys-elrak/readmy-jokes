@@ -1,6 +1,17 @@
 [
     {
         "type": "QA",
+        "question":  "Inona no fanalavana ny MIAMI?",
+        "answer": "MIray hina Ary MIfankatia"
+
+    },
+    {
+        "type": "JK",
+        "joke": "Taloha izay maharitra vadin'andriana, amin'izao izay miaritra mnmn🤣"
+    },
+    {
+        "type": "MM",
+        "url": "https://web.facebook.com/groups/2032731010203020/permalink/2548561651953284/"
         "question": "Fa maninona mitanondrika?",
         "answer": "Zarao ilay tsikinao.",
         "author": "FSC Mozika"
