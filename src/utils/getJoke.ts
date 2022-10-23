@@ -1,26 +1,30 @@
+import { Lang } from '../types/lang';
 import { Joke, JokeType } from './../types/joke';
-export default function getJoke(jokeType: JokeType): Joke<JokeType> {
-    if (jokeType === "QA") {
-        return {
-            type: "QA",
-            question: "Fa maninona mitanondrika?",
-            answer: "Zarao ilay tsikinao 🤣",
-            author: "FSC Mozika"
-        };
+export default async function getJoke(jokeType: JokeType, lang: Lang = Lang.DEFAULT): Promise<Joke<JokeType>> {
+    let db: { [key: string]: any} = {};
+    switch (lang) {
+        case Lang.EN: {
+            let { default: en } = await import('../../assets/jokes/jokes.en.json');
+            db = { ...db, ...en };
+        }
+        case Lang.MG: {
+            let { default: mg } = await import('../../assets/jokes/jokes.mg.json');
+            db = { ...db, ...mg };
+        } case Lang.FR: {
+            let { default: fr } = await import('../../assets/jokes/jokes.fr.json');
+            db = { ...db, ...fr };
+        }
+        default: {
+            let { default: def } = await import('../../assets/jokes/jokes.default.json');
+            db = { ...db, ...def };
+        }
     }
-    if (jokeType === "JK") {
-        return {
-            type: "JK",
-            joke: `An exercise for people who are out of shape: Begin with a five-pound potato bag in each hand. Extend your arms straight out from your sides, hold them there for a full minute, and then relax. After a few weeks, move up to ten-pound potato bags. Then try 50-pound potato bags, and eventually try to get to where you can lift a 100-pound potato bag in each hand and hold your arms straight for more than a full minute. Once you feel confident at that level, put a potato in each bag.`,
-            author: "Beverly Gross"
-        };
+    // turn db into array
+    const jokes = Object.keys(db).map((key: string) => db[key]).filter((joke: Joke<JokeType>) => joke.type === jokeType);
+    // get random joke
+    const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+    if (!randomJoke) {
+        throw new Error('No joke found');
     }
-    if (jokeType === "MM") {
-        return {
-            type: "MM",
-            url: "https://i.imgflip.com/1g8my4.jpg",
-            author: "Chrys Rakotonimanana"
-        };
-    }
-    throw new Error("Invalid joke type");
+    return randomJoke;
 }
