@@ -31,7 +31,6 @@ export function renderMemes(joke: Joke<"MM">): string {
         <div xmlns="http://www.w3.org/1999/xhtml"> 
           ${getStyle()}
           <img class="meme" src="${joke.url}" alt="Meme" />
-          <text class="author"> —${joke.author || "xxxx"}</text>
       </div>
     </foreignObject>
   </svg>
