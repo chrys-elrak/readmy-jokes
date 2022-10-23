@@ -12,7 +12,7 @@ export function renderJoke(joke: Joke<"JK">): string {
           <div class="container">
             <div class="text">
               <text class="joke">${joke.joke}</text>
-              <text class="author"> —${joke.author}</text>
+              <text class="author"> —${joke.author || "xxxx"}</text>
             </div>
           </div>
       </div>
@@ -31,7 +31,7 @@ export function renderMemes(joke: Joke<"MM">): string {
         <div xmlns="http://www.w3.org/1999/xhtml"> 
           ${getStyle()}
           <img class="meme" src="${joke.url}" alt="Meme" />
-          <text class="author"> —${joke.author}</text>
+          <text class="author"> —${joke.author || "xxxx"}</text>
       </div>
     </foreignObject>
   </svg>
@@ -50,7 +50,7 @@ export function renderQa(joke: Joke<"QA">): string {
           <div class="text">
             <p class="question"><b>Q: </b>${joke.question}</p>
             <p class="answer"><b>A: </b>${joke.answer}</p>
-            <p class="author"> —${joke.author}</p>
+            <p class="author"> —${joke.author || "xxxx"}</p>
           </div>
         </div>
     </div>
