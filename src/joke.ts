@@ -20,7 +20,7 @@ export default async function (req: Request, res: Response) {
             svg = renderMemes(joke as Joke<"MM">);
         }
         res.setHeader('Content-Type', 'image/svg+xml');
-        res.setHeader('Cache-Control', 's-maxage=86400');
+        res.setHeader('Cache-Control', 'no-cache');
         return res.send(svg);
     } catch {
         res.header('Content-Type', 'text/html');
