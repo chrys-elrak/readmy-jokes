@@ -24,9 +24,9 @@ export default async function (req: Request, res: Response) {
         return res.send(svg);
     } catch {
         res.header('Content-Type', 'text/html');
-        res.status(500).send(`
+        res.status(404).send(`
             <p class="error">
-                Uh oh! An error was encountered while processing your request.
+                Uh oh! No joke found.
             </p>
             <style>
                 .error {
