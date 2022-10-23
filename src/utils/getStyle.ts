@@ -29,6 +29,8 @@ export function getStyle(style: ThemeStyle = "default"): string {
         font-family: Arial, Helvetica, sans-serif;
       }
       .meme {
+          margin: .5rem;
+          padding: .5rem;
           width: 25%;
           height: 25%;
           box-shadow: -1px -3px 14px 0px darkgrey;
