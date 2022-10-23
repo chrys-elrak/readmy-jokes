@@ -36,7 +36,10 @@ export function getStyle(style: ThemeStyle = "default"): string {
       .container {
         background: ${theme.backgroundColor};
         border: 1px dashed gray;
-        height: 200px;
+        max-height: 200px;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        overflow: auto;
         box-shadow: -1px -3px 14px 0px darkgrey;
       }
       .joke {
