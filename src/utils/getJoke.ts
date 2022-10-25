@@ -25,7 +25,7 @@ export default async function getJoke(jokeType: JokeType, lang: Lang = Lang.DEFA
         }
     }
     // turn db into array
-    const jokes = Object.keys(db).map((key: string) => db[key]).filter((joke: Joke<JokeType>) => joke.type === jokeType);
+    const jokes = Object.keys(db).map((key: string) => db[key]).filter((joke: Joke<JokeType>) => joke.type.toUpperCase() === jokeType.toUpperCase());
     // get random joke
     const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
     return randomJoke;

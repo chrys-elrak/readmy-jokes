@@ -7,8 +7,8 @@ import getJoke from '../src/utils/getJoke';
 export default async function (req: Request, res: Response) {
     try {
         let svg: string = '';
-        const jokeType = (req.query as any)?.jokeType?.toUpperCase();
-        const lang: Lang = (req.query as any)?.lang?.toUpperCase();
+        const jokeType = (req.query as any)?.jokeType?.toUpperCase() || '';
+        const lang: Lang = (req.query as any)?.lang?.toUpperCase() || '';
         const joke = await getJoke(jokeType as JokeType, lang);
         if (joke.type === "QA") {
             svg = renderQa(joke as Joke<"QA">);
@@ -22,7 +22,9 @@ export default async function (req: Request, res: Response) {
         res.setHeader('Content-Type', 'image/svg+xml');
         res.setHeader('Cache-Control', 'no-cache');
         return res.send(svg);
-    } catch {
+    } catch (e) {
+        console.log(e);
+        
         res.header('Content-Type', 'text/html');
         res.status(404).send(`
             <p class="error">

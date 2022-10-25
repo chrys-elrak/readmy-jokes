@@ -1,5 +1,30 @@
 [
     {
+        "type": "JK",
+        "author":"Anonymous",
+        "joke": "On ne dit pas mine de rien, mais gisement épuisé."
+    },
+    {
+        "type": "JK",
+        "author":"Anonymous",
+        "joke": "Comment tu fais pour sauver Donald Trump de la noyade ? Tu ne sais pas ? Tant mieux !"
+    },
+    {
+        "type": "JK",
+        "author":"Anonymous",
+        "joke": "Pourquoi un chasseur emmène-t-il son fusil aux toilettes ? Pour tirer la chasse"
+    },
+    {
+    "type": "JK",
+    "author":"Anonymous",
+    "joke": "Une put* chez son gynécologue, lui demandant : »Vous perdez beaucoup pendant vos règles ? Mouais, entre 1000 et 1500 balles"
+    },
+    {
+        "type": "JK",
+        "author": "None",
+        "joke": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+    },
+    {
         "type": "QA",
         "question": "Do you know how a train eats?",
         "answer": "It goes chew chew Read more",
