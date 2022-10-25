@@ -31,7 +31,8 @@ export function getStyle(style: ThemeStyle = "default"): string {
       .meme {
           margin: .5rem;
           padding: .5rem;
-          box-shadow: -1px -3px 14px 0px darkgrey;
+          width: 10%;
+          heigth: 50%;
       }
       .container {
         background: ${theme.backgroundColor};
