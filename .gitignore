@@ -3,3 +3,5 @@ build
 .env
 .vercel
 public
+
+utils/*.txt
