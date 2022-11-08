@@ -3,5 +3,5 @@ build
 .env
 .vercel
 public
-
+.idea
 utils/*.txt
