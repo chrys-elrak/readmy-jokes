@@ -1,7 +1,7 @@
 import { Lang } from './types/lang';
 import { Request, Response } from 'express';
-import { renderJoke, renderMemes, renderQa } from '../src/renderer';
-import { Joke, JokeType } from '../src/types/joke';
+import { renderJoke, renderMemes, renderQa } from './renderer';
+import { Joke, JokeType } from './types/joke';
 import getJoke from '../src/utils/getJoke';
 
 export default async function (req: Request, res: Response) {
