@@ -24,7 +24,7 @@ export function renderJoke(joke: Joke<"JK">): string {
       maxWidth = text.length;
     }
     res += `
-    <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 12px; white-space: pre;" x="0" y="${y}">
+    <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 11px; white-space: pre;" x="0" y="${y}">
       ${i + CHUNK > MAX_HEIGHT ? text + '...' : text}
     </text>
     `;
@@ -33,12 +33,13 @@ export function renderJoke(joke: Joke<"JK">): string {
   }
   const height = lastLine + lines.length + LINE;
   const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg">
+    <svg xmlns="http://www.w3.org/2000/svg" style="width: 600px; height: 600px;">
       <g viewBox="0 0 500 500">
-      <defs></defs>
       <rect x="0" y="0" width="${MAX_WIDTH}" height="${height}" style="fill: transparent; stroke: rgb(0, 0, 0);"></rect>
         ${res}
-        <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 12px; white-space: pre;" x="${(MAX_WIDTH / 2) + maxWidth}" y="${height - MARGIN_VERTICAL}">
+        <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif;
+        font-size: 11px; white-space: pre; font-style: italic;"
+        x="${(MAX_WIDTH / 2) + maxWidth}" y="${height - MARGIN_VERTICAL}">
           -- ${joke.author}
         </text>
       </g>
