@@ -1,5 +1,5 @@
 export function getScript(...params: TemplateStringsArray[]): string {
-    let fnName = params.flat().join("") || 'init';
+    let fnName = params.join("") || 'init';
     return `<script>
     const ${fnName} = () => {
       console.log("${fnName}");

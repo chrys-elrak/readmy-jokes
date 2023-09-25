@@ -48,14 +48,14 @@ export function renderJoke(joke: Joke<"JK">): string {
   return svg;
 }
 
-export function renderMemes(joke: Joke<"MM">): string {
+export async function renderMemes(joke: Joke<"MM">): Promise<string> {
   const svg = `
     <svg fill="none" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
       ${script``}
-        <div xmlns="http://www.w3.org/1999/xhtml"> 
-          ${getStyle()}
-          <img class="meme" src="${joke.url}" alt="Meme" />
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          ${await getStyle()}
+          <img class="meme" src="${joke.url}" alt="Meme by ${joke.author}" />
       </div>
     </foreignObject>
   </svg>
@@ -63,13 +63,13 @@ export function renderMemes(joke: Joke<"MM">): string {
   return svg;
 };
 
-export function renderQa(joke: Joke<"QA">): string {
+export async function renderQa(joke: Joke<"QA">): Promise<string> {
   const svg = `
   <svg id="joke" onload="init()" fill="none" xmlns="http://www.w3.org/2000/svg">
   <foreignObject width="100%" height="100%">
   ${script``}
-      <div xmlns="http://www.w3.org/1999/xhtml"> 
-        ${getStyle()}
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        ${await getStyle()}
         <div class="container">
           <div class="text">
             <p class="question"><b>Q: </b>${joke.question}</p>

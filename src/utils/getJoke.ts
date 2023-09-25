@@ -1,4 +1,3 @@
-import joke from '../joke';
 import { Lang } from '../types/lang';
 import { Joke, JokeType } from './../types/joke';
 export default async function getJoke(jokeType: JokeType, lang: Lang = Lang.DEFAULT): Promise<Joke<JokeType>> {

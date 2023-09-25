@@ -1,20 +1,41 @@
-import express from "express";
-import dotenv from "dotenv";
-import joke from "./src/joke";
+import { Hono } from 'hono';
+import getJoke from './src/utils/getJoke';
+import { Joke, JokeType } from './src/types/joke';
+import { Lang } from './src/types/lang';
+import { renderJoke, renderMemes, renderQa } from './src/renderer';
+const app = new Hono();
 
-dotenv.config();
-
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use('/api/v1', joke);
-
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-})
-const PORT = process.env.PORT || 3000;
-
-
-app.listen(PORT, () => {
-    console.log("Server is running on port " + PORT);
+app.get('/', async (ctx) => {
+    try {
+        const jokeType = ctx.req.query()['jokeType'] || '';
+        const lang = ctx.req.query()['lang'] || '';
+        const joke = await getJoke(jokeType as JokeType, lang as Lang);
+        let svg: string = '';
+        if (joke.type === "QA") {
+            svg = await renderQa(joke as Joke<"QA">);
+        }
+        if (joke.type === "JK") {
+            svg = renderJoke(joke as Joke<"JK">);
+        }
+        if (joke.type === "MM") {
+            svg = await renderMemes(joke as Joke<"MM">);
+        }
+        ctx.header('Content-Type', 'image/svg+xml');
+        ctx.header('Cache-Control', 'no-cache');
+        return ctx.html(svg);
+    } catch {
+        ctx.header('Content-Type', 'text/html');
+        return ctx.html(`
+           <p class="error">
+               Uh oh! No joke found.
+           </p>
+           <style>
+               .error {
+                   color: red;
+               }
+           </style>
+       `);
+    }
 });
+
+export default app;

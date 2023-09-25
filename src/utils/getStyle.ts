@@ -1,13 +1,13 @@
 import { Theme, ThemeStyle } from "../types/theme";
 
-export function getStyle(style: ThemeStyle = "default"): string {
+export async function getStyle(style: ThemeStyle = "default"): Promise<string> {
     let theme: Theme;
     switch (style) {
         case "default":
-            theme = require("../../assets/themes/default.theme.json");
+            theme = await import("../../assets/themes/default.theme.json");
             break;
         default:
-            theme = require("../../assets/themes/default.theme.json");
+            theme = await import("../../assets/themes/default.theme.json");
             break;
     }
     return `
@@ -31,8 +31,8 @@ export function getStyle(style: ThemeStyle = "default"): string {
       .meme {
           margin: .5rem;
           padding: .5rem;
-          width: 500px;
-          heigth: 500px;
+          width: 150px;
+          heigth: 150px;
       }
       .container {
         background: ${theme.backgroundColor};
