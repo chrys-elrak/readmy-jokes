@@ -20,9 +20,7 @@ app.get('/', async (ctx) => {
         if (joke.type === "MM") {
             svg = await renderMemes(joke as Joke<"MM">);
         }
-        ctx.header('Content-Type', 'image/svg+xml');
-        ctx.header('Cache-Control', 'no-cache');
-        return ctx.html(svg);
+        return new Response(svg, { headers: { 'content-type': 'image/svg+xml', 'Cache-Control': 'no-cache' } })
     } catch {
         ctx.header('Content-Type', 'text/html');
         return ctx.html(`
